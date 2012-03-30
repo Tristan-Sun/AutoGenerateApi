@@ -1,0 +1,817 @@
+message ClientLoginRequest {
+	required string user
+	required string password
+	required string uniq_id
+	optional int32	isverify
+	optional string verifycode
+	optional string client_info
+}
+
+message ClientGetLoginInfoRequest {
+	required string session_key
+	optional string client_info
+}
+
+message FeedGetRequest {
+	required string session_key
+	required string type
+	optional int32	page = 1
+	optional int32	page_size = 30
+	optional int64	uid
+	optional int32 	focus
+	optional string client_info
+}
+
+message FeedReadRequest {
+	required string session_key
+	required int64	id
+	optional int32	is_mini_feed
+	optional string client_info
+}
+
+message FeedPublishFeedRequest {
+	required string session_key
+	required string title
+	required string url
+	required string content
+	optional string image_src
+	optional string message
+	optional string client_info
+}
+
+message VideoGetRequest {
+	required string session_key
+	required string video_url
+	required string platform
+	optional string client_info
+}
+
+message	VideoGetUrlRequest {
+	required string session_key
+	optional string client_info
+}
+
+message VideoSaveRequest {
+	required string session_key
+	required string	item_code
+	required string title
+	required string description
+	optional string client_info
+}
+
+message ShareGetCommentsRequest {
+	required string session_key
+	required int64 	id
+	required int64	user_id
+	optional int32 	page = 1
+	optional int32	page_size = 10
+	optional int32	exclude_list
+	optional int32	sort
+	optional string client_info
+}
+
+message ShareAddCommentRequest {
+	required string session_key
+	required int64	id
+	required int64	user_id
+	required string content
+	optional int64	rid
+	optional string client_info
+}
+
+message ShareGetHotsRequest {
+	required string session_key
+	required int32	type
+	optional int32	page = 1
+	optional int32	page_size = 10
+	optional int32	exclude_list
+	optional string client_info
+}
+
+message	ShareGetsRequest {
+	required string session_key
+	optional int32	type
+	optional int64	uid
+	optional string sub_types
+	optional int32	page = 1
+	optional int32	page_size = 10
+	optional int32	exclude_list
+	optional string client_info
+}
+
+message ShareGetRequest {
+	required string session_key
+	required int64	id
+	required int64	uid
+	optional int32	type
+	optional int32	with_source
+	optional string password
+	optional int32	only_desc
+	optional int32	content_in_page
+	optional int32	content_other_all
+	optional int32	content_page = 1
+	optional int32	content_page_size = 900
+	optional string client_info
+}
+
+message SharePublishRequest {
+	required string session_key
+	required int64	id
+	required int64	uid
+	required int32	source_type
+	optional int32	type
+	optional string url
+	optional string comment
+	optional string password
+	optional string client_info
+}
+
+message ShareDeleteRequest {
+	required string session_key
+	required int64	id
+	optional int32	type
+	optional string client_info
+}
+
+message SharePublishLinkRequest {
+	required string session_key
+	required string url
+	required string title
+	optional string thumb_url
+	optional string desc
+	optional string comment
+	optional int32	from
+	optional int32	page_id
+	optional string client_info
+}
+
+message ShareGetLinkRequest {
+	required string session_key
+	required string url
+	optional int32	content_size = 20
+	optional string client_info
+}
+
+message GetsBlogRequest {
+	required string session_key
+	required int64	uid
+	optional int32	page = 1
+	optional int32	page_size = 10
+	optional string client_info
+}
+
+message GetBlogRequest {
+	required string session_key
+	required int64	id
+	required int64	user_id
+	optional int32	need_html
+	optional int32	only_br
+	optional string	password
+	optional int32	only_desc
+	optional int32	content_in_page
+	optional int32	content_other_all
+	optional int32	content_page = 1
+	optional int32	content_page_size = 900
+	optional string client_info
+}
+
+message	AddBlogRequest {
+	required string session_key
+	required string title
+	required string content
+	optional int32	visible = 99
+	optional string password
+	optional string client_info
+}
+
+message	DeleteBlogRequest {
+	required string session_key
+	required int64	id
+	optional string client_info
+}
+
+message	DeleteBlogCommentRequest {
+	required string session_key
+	required int64	id
+	required int64	owner_id
+	optional string client_info
+}
+
+message GetBlogCategoryRequest {
+	required string session_key
+	optional string client_info
+}
+
+message GetBlogCommentsRequest {
+	required string session_key
+	required int64	id
+	required int64	user_id
+	optional string password
+	optional int32	page = 1
+	optional int32	page_size = 10
+	optional int32	sort
+	optional string client_info
+}
+
+message	AddBlogCommentRequest {
+	required string session_key
+	required int64	id
+	required string content
+	required int64	user_id
+	optional int64	rid
+	optional int32	type
+	optional string client_info
+}
+
+message BlogPrivacyRequest {
+	required string session_key
+	required int64	id
+	required int64	owner_id
+	optional string client_info
+}
+
+message GossipPostGossipRequest {
+	required string session_key
+	required int64	userId
+	required string content
+	optional int64	reUserId
+	optional int32	isWhisper
+	optional string client_info
+}
+
+message	GossipGetsRequest {
+	required string session_key
+	required int64	user_id
+	optional int32	page = 1
+	optional int32	page_size = 50
+	optional string client_info
+}
+
+message GossipDeleteRequest {
+	required string session_key
+	required int64	id
+	required int64	user_id
+	optional string client_info
+}
+
+message FriendsGetFriendsRequest {
+	required string session_key
+	optional int64	userId
+	optional int32	page = 1
+	optional int32	pageSize = 30
+	optional int32	hasNetwork
+	optional int32	hasGroup
+	optional int32	hasGender
+	optional int32	hasIsFriend
+	optional string client_info
+}
+
+message FriendsGetOnlineFriendsRequest {
+	required string session_key
+	optional int64	userId
+	optional int32	isOnline
+	optional int32	isContact
+	optional int32	hasNetwork
+	optional int32	hasGroup
+	optional int32	hasGender
+	optional int32	hasIsFriend
+	optional int32	hasStatus
+	optional int32	hasUserName
+	optional int32	hasHeadUrl
+	optional int32	useShortUrl
+	optional int32	hasBirthday
+	optional int32	hasLargeHeadUrl
+	optional string client_info
+}
+
+message FriendsIsOnlineRequest {
+	required string session_key
+	optional string id_list
+	optional string client_info
+}
+
+message FriendsSearchRequest {
+	required string session_key
+	required string name
+	optional int32	page = 1
+	optional int32	page_size = 30
+	optional int32	hasSharedFriendsCount
+	optional int32	hasIsFriend
+	optional int32	hasNetwork
+	optional int32	hasGender
+	optional string client_info
+}
+
+message FriendsGetSharedFriendsRequest {
+	required string sessioin_key
+	required int64	userId
+	optional int32	page = 1
+	optional int32	pageSize = 30
+	optional int32	exclude_list
+	optional int32	hasFriendsCount
+	optional int32	hasHeadImg
+	optional int32	hasGender
+	optional int32	hasIsVip
+	optional int32	hasOnline
+	optional int32	hasWapOnline
+	optional int32	hasIsGuide
+	optional int32	hasNetwork
+	optional int32	hasGroup
+	optional string client_info
+}
+
+message FriendsAreFriendsRequest {
+	required string session_key
+	required string user_id_list_1
+	required string user_id_list_2
+	optional string client_info
+}
+
+message FriendsRequestRequest {
+	required string session_key
+	required int64	uid
+	optional string content
+	optional string client_info
+}
+
+message FriendsAcceptRequest {
+	required string session_key
+	required int64	user_id
+	optional string client_info
+}
+
+message	FriendsGetRequestsRequest {
+	required string session_key
+	optional int32	exclude_list
+	optional int32	page = 1
+	optional int32	page_size = 10
+	optional int32	del_news
+	optional string client_info
+}
+
+message FriendsDenyAllRequest {
+	required string session_key
+	optional string client_info
+}
+
+message FriendsDenyRequest {
+	required string session_key
+	required int64	user_id
+	optional string client_info
+}
+
+message FriendsRecommendRequest {
+	required string session_key
+	optional int32	page = 1
+	optional int32	page_size = 10
+	optional string client_info
+}
+
+message FriendsRemoveFriendRequest {
+	required string session_key
+	required int64	uid
+	optional string client_info
+}
+
+message FriendsAddFocusFriendRequest {
+	required string session_key
+	required int64	uid
+	optional string client_info
+}
+
+message FriendsDelFocusFriendRequest {
+	required string session_key
+	required int64	uid
+	optional string client_info
+}
+
+message FriendsGetFocusFriendsRequest {
+	required string session_key
+	optional string client_info
+}
+
+message NewsGetCountRequest {
+	required string session_key
+	optional int32	update_timestamp
+	optional int32	total
+	optional string sub_types
+	optional int32	type
+	optional string client_info
+}
+
+message	NewsGetClientCountRequest {
+	required int64  last_time
+	required int64	last_page_time
+	optional string session_key
+	optional string client_info
+}
+
+message NewsPushRequest {
+	required string session_key
+	required string sub_types
+	required int32	type
+	optional string client_info
+}
+
+message NewsNewsListRequest {
+	required string session_key
+	required string sub_types
+	required int32	type
+	optional int32	page = 1
+	optional int32	page_size = 20
+	optional bool	reflash
+	optional string client_info
+}
+
+message NewsFriendRequestListRequest {
+	required string session_key
+	optional int32	page = 1
+	optional int32	count = 30
+	optional string client_info
+}
+
+message NewsReadNewsByIdRequest {
+	required string session_key
+	required int64	news_id
+	optional string client_info
+}
+
+message NewsReadNewsBySourceIdRequest {
+	required string session_key
+	required int64 source_id
+	required int32 type
+	optional string client_info
+}
+
+message NewsGetFriendsBirthdayListRequest {
+	required string session_key
+	optional string client_info
+}
+
+message PhotosSendFeedRequest {
+	required string session_key
+	required int32	send_feed
+	required int64	aid
+	optional int32	from
+	optional string client_info
+}
+
+message PhotosGetAlbumsRequest {
+	required string session_key
+	required int64	uid
+	optional int64	aid
+	optional int32	page = 1
+	optional int32	page_size = 30
+	optional string password
+	optional int32	exclude_list
+	optional int32	all_album
+	optional int32	without_head
+	optional string client_info
+}
+
+message PhotosGetRequest {
+	required string session_key
+	required int64	uid
+	optional int64	aid
+	optional int64	pid
+	optional int32	page = 1
+	optional int32	page_size = 10
+	optional string password
+	optional int32	all
+	optional int32	exclude_list
+	optional int32	with_lbs
+	optional string client_info
+}
+
+message PhotosGetCoverRequest {
+	required string session_key
+	required int64	uid
+	optional int64	pid
+	optional string client_info
+}
+
+message PhotosGetNewUploadedRequest {
+	required string session_key
+	optional int64	uid
+	optional int32	page = 1
+	optional int32	page_size = 10
+	optional int32	with_lbs
+}
+
+message PhotosGetCommentsRequest {
+	required string session_key
+	required int64	uid
+	optional int64	aid
+	optional int64	pid
+	optional int32	page = 1
+	optional int32	page_size = 10
+	optional int32 	sort
+	optional string password
+	optional string client_info
+}
+
+message PhotosAddCommentRequest {
+	required string session_key
+	required int64	uid
+	optional int64	aid
+	optional int64	pid
+	required string content
+	optional int64	rid
+	optional int32	whisper
+	optional string client_info
+}
+
+message PhotosDeleteCommentRequest {
+	required string session_key
+	required int64	id
+	required int64	uid
+	optional int64	aid
+	optional int64	pid
+	optional string client_info
+}
+
+message PhotosCreateAlbumRequest {
+	required string session_key
+	required string name
+	optional string description
+	optional string location
+	optional string password
+	optional int32	visible
+	optional string client_info
+}
+
+message PhotosDeleteRequest {
+	required string session_key
+	optional int64	pid
+	optional int64	aid
+	optional string client_info
+}
+
+message	PhotosEditRequest {
+	required string session_key
+	required int64	owner_id
+	required int64	photo_id
+	required int64	from_album_id
+	optional int64	to_album_id
+	optional string description
+	optional int32	as_cover
+	optional string client_info
+}
+
+message PhotosPrivacyRequest {
+	required string session_key
+	required int64	id
+	required int64	owner_id
+	optional int32	is_album
+	optional string client_info
+}
+
+message PhotosAddTagRequest {
+	required string session_key
+	required int64	owner_id
+	required int64	album_id
+	required int64	photo_id
+	required string tag_list
+	optional string client_info
+}
+
+message PhotosGetTagsRequest {
+	required string session_key
+	required int64	owner_id
+	required int64	photo_id
+	optional string client_info
+}
+
+message PhotosDeleteTagRequest {
+	required string session_key
+	required int64	tag_id
+	required int64	owner_id
+	optional string client_info
+}
+
+message PhotosDeleteTagAllRequest {
+	required string session_key
+	required int64	photo_id
+	required int64	owner_id
+	optional string client_info
+}
+
+message StatusSetRequest {
+	required string session_key
+	required string status
+	optional string place_data
+	optional string client_info
+}
+
+message StatusForwardRequest {
+	required string session_key
+	required string status
+	required int64	forward_doing_id
+	required int64	forward_owner_id
+	optional string place_data
+	optional bool	send_owner
+	optional bool	send_origin
+	optional string client_info
+}
+
+message StatusGetRequest {
+	required string session_key
+	optional int64	uid
+	optional int64	id
+	optional string client_info
+}
+
+message StatusGetsRequest {
+	required string session_key
+	optional int64	uid
+	optional int32	page = 1
+	optional int32	page_size = 30
+	optional string client_info
+}
+
+message StatusGetLastRequest {
+	required string session_key
+	required string user_id
+	optional string client_info
+}
+
+message StatusAddCommentRequest {
+	required string session_key
+	required int64	owner_id
+	required string content
+	required int64	status_id
+	optional int64	rid
+	optional string client_info
+}
+
+message	StatusGetCommentsRequest {
+	required string session_key
+	required int64	id
+	required int64	owner_id
+	optional int32	page = 1
+	optional int32	page_size = 20
+	optional int32	with_status
+	optional int32	sort
+	optional string client_info
+}
+
+message StatusRemoveRequest {
+	required string session_key
+	required int64	status_id
+	optional int64	owner_id
+	optional string client_info
+}
+
+message StatusRemoveCommentRequest {
+	required string session_key
+	required int64	status_id
+	required int64	comment_id
+	optional int64	owner_id
+	optional string client_info
+}
+
+message	StatusGetEmoticonsRequest {
+	required string session_key
+	optional string type
+	optional int32	isall
+	optional string client_info
+}
+
+message PageIsPageRequest {
+	required string session_key
+	required int64	page_id
+	optional string client_info
+}
+
+message PageIsFansRequest {
+	required string session_key
+	required int64	user_id
+	required int64	page_id
+	optional string client_info
+}
+
+message	PageBecomeFanRequest {
+	required string session_key
+	required int64	page_id
+	optional string ref
+	optional string client_info
+}
+
+message PageQuitFansRequest {
+	required string session_key
+	required int64	page_id
+	optional string client_info
+}
+
+message PageGetListRequest {
+	required string session_key
+	optional int32	page = 1
+	optional int32	page_size = 10
+	optional int64	user_id
+	optional string client_info
+}
+
+message PageGetFansListRequest {
+	required string session_key
+	required int64	page_id
+	optional int32	page = 1
+	optional int32	page_size = 10
+	optional string client_info
+}
+
+message PageGetInfoRequest {
+	required string session_key
+	required string fields
+	required int64	page_id
+	optional string client_info
+}
+
+message PageSearchRequest {
+	required string session_key
+	required string keyword
+	optional int32	page = 1
+	optional int32	page_size = 10
+	optional string client_info
+}
+
+message PhoneclientGetUpdateInfoRequest {
+	required string session_key
+	required int	name
+	required int	property
+	required int	subproperty
+	required string version
+	required int	channelId
+	required string ua
+	required string os
+	required int	pubdate
+	required int	up
+	optional string lastTag
+	optional string client_info
+}
+
+message	PhoneclientActiveClientRequest {
+	required string data
+	required string uniq_id
+	required string	client_info
+}
+
+message	PhoneclientActionLogRequest {
+	required string data
+	required string fromId
+	required string terminal
+	required string version
+}
+
+message PhoneclientSdkLogRequest {
+	required string data
+	required string app
+	required string uid
+	required string result
+	required string fn
+	required string	pf
+	required string	ver
+	optional string client_info
+}
+
+message PhoneclientGetErrorMsgRequest {
+	required string session_key
+	optional string	client_info
+}
+
+message PhoneclientToolLogRequest {
+	required string time
+	required string buttonId
+	required string clickCount
+	required string imei
+	required string	contactCount
+	optional string client_info
+	optional string extraData
+	optional string session_key
+}
+
+message PhoneclientGetRegexMsgRequest {
+	required string regex_code
+	optional string client_info
+}
+
+message PushAddTokenRequest {
+	required string session_key
+	required int	pusher
+	required string token
+	optional string	client_info
+}
+
+message PushAddWin8TokenRequest {
+	required string session_key
+	required int64	expired_time
+	required string token
+	optional string client_info
+	optional int	sub_user_id
+}
+
+message BatchRunRequest {
+	required string method_feed
+	optional string client_info
+	optional string session_key
+}
+
